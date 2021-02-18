@@ -1,47 +1,48 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-  Task = mongoose.model('Tasks');
+RawData = mongoose.model('RawData');
 
-exports.list_all_tasks = function(req, res) {
-  Task.find({}, function(err, task) {
+exports.list_all_data = function(req, res) {
+  RawData.find({}, function(err, raw_data) {
     if (err)
       res.send(err);
-    res.json(task);
+    res.json(raw_data);
   });
 };
 
-exports.create_a_task = function(req, res) {
-    var new_task = new Task(req.body);
-    new_task.save(function(err, task) {
+exports.save_a_datum = function(req, res) {
+    var new_datum = new RawData();
+    new_datum.data = req.body.toString();
+    new_datum.save(function(err, raw_data) {
       if (err)
         res.send(err);
-      res.json(task);
+      res.json(raw_data);
     });
   };
 
-exports.read_a_task = function(req, res) {
-    Task.findById(req.params.taskId, function(err, task) {
+exports.read_a_datum = function(req, res) {
+  RawData.findById(req.params.datumId, function(err, raw_data) {
       if (err)
         res.send(err);
-      res.json(task);
+      res.json(raw_data);
     });
   };
 
-exports.update_a_task = function(req, res) {
-    Task.findOneAndUpdate({_id: req.params.taskId}, req.body, {new: true}, function(err, task) {
+exports.update_a_datum = function(req, res) {
+  RawData.findOneAndUpdate({_id: req.params.datumId}, req.body, {new: true}, function(err, raw_data) {
       if (err)
         res.send(err);
-      res.json(task);
+      res.json(raw_data);
     });
   };
 
-exports.delete_a_task = function(req, res) {
-    Task.remove({
-      _id: req.params.taskId
-    }, function(err, task) {
+exports.delete_a_datum = function(req, res) {
+  RawData.remove({
+      _id: req.params.datumId
+    }, function(err, raw_data) {
       if (err)
         res.send(err);
-      res.json({ message: 'Task successfully deleted' });
+      res.json({ message: 'datum successfully deleted' });
     });
   };

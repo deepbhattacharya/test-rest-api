@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -r esm server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
   "dependencies": {
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "mongoose": "^5.11.17"
+    "mongoose": "^5.11.17",
+    "properties-reader": "^2.2.0"
   }
 }

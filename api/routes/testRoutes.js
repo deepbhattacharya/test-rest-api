@@ -4,6 +4,9 @@ module.exports = function(app) {
   var testapi = require('../controllers/testController');
 
   // Routes
+  app.route('/')
+  .get(testapi.list_all_data);
+
   app.route('/data')
     .get(testapi.list_all_data)
     .post(testapi.save_a_datum);

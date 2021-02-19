@@ -2,7 +2,6 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
-  PropertiesReader = require('properties-reader'),
   RawData = require('./api/models/testModel'), //created model loading here
   bodyParser = require('body-parser');
 
@@ -13,7 +12,8 @@ if (process.env.MONGO_CONN_STRING) {
   mongoose.connect(process.env.MONGO_CONN_STRING);
 } else {
   // local installation
-  const prop = PropertiesReader('./project.properties');
+  const PropertiesReader = require('properties-reader'),
+    prop = PropertiesReader('./project.properties');
   mongoose.connect(prop.get("main.MONGO_CONN_STRING"));
 }
 

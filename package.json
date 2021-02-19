@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/student-errant/test-rest-api.git"
+    "url": "git+https://github.com/deepbhattacharya/test-rest-api.git"
   },
   "keywords": [
     "API"
@@ -18,9 +18,9 @@
   "author": "Deep Bhattacharya",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/student-errant/test-rest-api/issues"
+    "url": "https://github.com/deepbhattacharya/test-rest-api/issues"
   },
-  "homepage": "https://github.com/student-errant/test-rest-api#readme",
+  "homepage": "https://github.com/deepbhattacharya/test-rest-api#readme",
   "devDependencies": {
     "nodemon": "^2.0.7"
   },
